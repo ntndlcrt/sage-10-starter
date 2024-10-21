@@ -7,7 +7,7 @@
     @php(wp_head())
   </head>
 
-  <body @php(body_class())>
+  <body @php(body_class()) data-barba="wrapper">
     @php(wp_body_open())
 
     <div id="app">
@@ -17,7 +17,10 @@
 
       @include('sections.header')
 
-      <main id="main" class="main">
+      <a href="/">Home</a>
+      <a href="/sample-page" data-transition="fade-to-black">Sample</a>
+
+      <main id="main" class="main" data-barba="container" data-barba-namespace="{{ get_post_field( 'post_name', get_post() ) }}">
         @yield('content')
       </main>
 
