@@ -58,7 +58,9 @@
   "extra": {
     "acorn": {
       "providers": [
-        "App\\Providers\\ThemeServiceProvider"
+        "App\\Providers\\ThemeServiceProvider",
+        "App\\Providers\\AcfBlocksServiceProvider",
+        "App\\Providers\\AcfJSONServiceProvider"
       ]
     }
   }
