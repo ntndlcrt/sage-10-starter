@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2a63876687ef428647f9a21b43dc04a",
+    "content-hash": "36a1302c9228f6bb90e964bc9fcc72d4",
     "packages": [
         {
             "name": "brick/math",
@@ -2522,6 +2522,74 @@
                 }
             ],
             "time": "2024-09-21T08:32:55+00:00"
+        },
+        {
+            "name": "log1x/sage-directives",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Log1x/sage-directives.git",
+                "reference": "c391f84f94b2040f758ee60f9682521345eb864c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Log1x/sage-directives/zipball/c391f84f94b2040f758ee60f9682521345eb864c",
+                "reference": "c391f84f94b2040f758ee60f9682521345eb864c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.10",
+                "pestphp/pest": "^2.9",
+                "roots/acorn": "*"
+            },
+            "type": "package",
+            "extra": {
+                "acorn": {
+                    "providers": [
+                        "Log1x\\SageDirectives\\SageDirectivesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Log1x\\SageDirectives\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Nifong",
+                    "email": "brandon@tendency.me"
+                }
+            ],
+            "description": "A set of Blade directives for use with Roots Sage.",
+            "homepage": "https://github.com/log1x/sage-directives",
+            "keywords": [
+                "acorn",
+                "blade",
+                "blade-directives",
+                "directives",
+                "roots",
+                "sage",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/log1x/sage-directives/issues",
+                "source": "https://github.com/Log1x/sage-directives/tree/v2.0.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Log1x",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-08-16T09:00:47+00:00"
         },
         {
             "name": "monolog/monolog",
