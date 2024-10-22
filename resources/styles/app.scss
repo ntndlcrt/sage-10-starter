@@ -1,5 +1,7 @@
+@use 'config';
+@use 'layout';
 @use 'blocks';
 
 * {
-  color: blue;
+  color: var(--blue);
 }
