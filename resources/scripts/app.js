@@ -3,6 +3,9 @@ import barba from '@barba/core'
 import { BlockManager } from './core/BlockManager'
 // import { UtilityManager } from './core/UtilityManager'
 import { TransitionManager } from './core/TransitionManager'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Lenis from 'lenis'
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
@@ -18,6 +21,8 @@ class App {
 
   async init() {
     await this.initBarba()
+    this.initGSAP()
+    this.initLenis()
     this.blockManager.init()
     // this.utilityManager.init()
   }
@@ -44,6 +49,21 @@ class App {
       preventRunning: true,
       transitions: this.transitionManager.getTransitions(),
     })
+  }
+
+  initGSAP() {
+    gsap.registerPlugin(ScrollTrigger)
+  }
+
+  initLenis() {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
   }
 }
 
