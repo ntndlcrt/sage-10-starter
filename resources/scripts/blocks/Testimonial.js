@@ -8,7 +8,6 @@ export class Testimonial extends Block {
   }
 
   bindEvents() {
-    // this.on('click', this, console.log('hello'))
     this.on('click', this.title, () => {
       console.log('hello')
     })

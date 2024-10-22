@@ -1,4 +1,3 @@
-// transitions/FadeToBlack.js
 import gsap from 'gsap'
 
 export default {
@@ -6,7 +5,9 @@ export default {
   custom: ({ trigger }) =>
     trigger?.getAttribute('data-transition') === 'fade-to-black',
 
-  leave: () => {
+  async leave(data) {
+    const done = this.async()
+
     const overlay = document.createElement('div')
     overlay.classList.add('transition-overlay')
     Object.assign(overlay.style, {
@@ -22,14 +23,23 @@ export default {
 
     document.body.appendChild(overlay)
 
-    return gsap.to(overlay, {
+    // Hide old content when overlay is black
+    await gsap.to(overlay, {
       opacity: 1,
       duration: 0.6,
+      onComplete: () => {
+        gsap.set(data.current.container, { display: 'none' })
+        done()
+      },
     })
   },
 
-  enter: () => {
+  enter(data) {
     const overlay = document.querySelector('.transition-overlay')
+
+    // Make sure new content is visible before starting fade out
+    gsap.set(data.next.container, { opacity: 1 })
+
     return gsap.to(overlay, {
       opacity: 0,
       duration: 0.6,
