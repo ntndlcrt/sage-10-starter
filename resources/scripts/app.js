@@ -1,8 +1,8 @@
 import domReady from '@roots/sage/client/dom-ready'
 import barba from '@barba/core'
-import { BlockManager } from './core/BlockManager'
-// import { UtilityManager } from './core/UtilityManager'
-import { TransitionManager } from './core/TransitionManager'
+import BlockManager from './core/BlockManager'
+import UtilityManager from './core/UtilityManager'
+import TransitionManager from './core/TransitionManager'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
@@ -15,7 +15,7 @@ if (import.meta.webpackHot) import.meta.webpackHot.accept(console.error)
 class App {
   constructor() {
     this.blockManager = new BlockManager()
-    // this.utilityManager = new UtilityManager()
+    this.utilityManager = new UtilityManager()
     this.transitionManager = new TransitionManager(this)
   }
 
@@ -24,7 +24,7 @@ class App {
     this.initGSAP()
     this.initLenis()
     this.blockManager.init()
-    // this.utilityManager.init()
+    this.utilityManager.init()
   }
 
   async initBarba() {
@@ -56,7 +56,22 @@ class App {
   }
 
   initLenis() {
-    const lenis = new Lenis()
+    const lenis = new Lenis({
+      // duration: 1.2,
+      // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+      // orientation: 'vertical',
+      // gestureOrientation: 'vertical',
+      // smoothWheel: true,
+      // wheelMultiplier: 1,
+      // smoothTouch: false, // Touch smooth scroll can feel odd on mobile
+      // touchMultiplier: 2,
+      // infinite: false,
+      // // Improved settings for smoother feel
+      // lerp: 0.1, // Lower = smoother
+      // normalizeWheel: true,
+      // syncTouch: true,
+      // syncTouchLerp: 0.075,
+    })
 
     function raf(time) {
       lenis.raf(time)

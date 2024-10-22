@@ -1,7 +1,7 @@
 import FadeToBlack from '../transitions/FadeToBlack'
 import Default from '../transitions/Default'
 
-export class TransitionManager {
+export default class TransitionManager {
   constructor(app) {
     this.app = app
     this.transitions = [FadeToBlack, Default]
@@ -11,9 +11,9 @@ export class TransitionManager {
     return this.transitions.map((transition) => ({
       ...transition,
       enter: async (data) => {
-        await transition.enter(data)
+        transition.enter(data)
         this.app.blockManager.init()
-        // this.app.utilityManager.init()
+        this.app.utilityManager.init()
       },
     }))
   }

@@ -1,6 +1,6 @@
 import Block from './Block'
 
-export class Testimonial extends Block {
+export default class Testimonial extends Block {
   setupAnimations() {
     this.title = this.query('h1')
 

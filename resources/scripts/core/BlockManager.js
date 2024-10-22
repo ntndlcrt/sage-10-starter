@@ -1,6 +1,6 @@
-import { Testimonial } from '../blocks/Testimonial'
+import Testimonial from '../blocks/Testimonial'
 
-export class BlockManager {
+export default class BlockManager {
   constructor() {
     this.activeBlocks = new Map()
     this.blockList = [{ selector: '.b-testimonial', Class: Testimonial }]
